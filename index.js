@@ -1,14 +1,13 @@
 const express = require ("express");
-const passport = require('passport');
-const GoogleStrategy = require("passport-google-oauth20").Strategy;
+require('./services/passport');
 
+//has to use requre import not working syntax error??
+// import {googleClientID} from "./config/keys";
+// import {googleClientSecret} from "./config/keys";
 
 const app = express();
 
-
-
-passport.use(new GoogleStrategy());
-
+require('./routes/authRoutes')(app);
 
 
 const PORT = process.env.PORT || 3000;
