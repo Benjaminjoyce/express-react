@@ -1,10 +1,13 @@
-//start by assuming state will be undefined and instead set it as an empty object.
-//switch over actions with action.type being sure to return state everytime.
-//return a NEW state everytime. state must not be mutated!!!!
+import {
+    FETCH_USER
+} from '../actions/types';
 
-
-export default function(state = {}, action) {
+export default function(state = null, action) {
+    console.log(action);
     switch (action.type) {
-        default: return state;
+        case FETCH_USER:
+            return action.payload || false;
+        default:
+            return state;
     }
 }
