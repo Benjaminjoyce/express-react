@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
+import Payments from './Stripe';
 
 class Header extends Component {
   renderContent() {
@@ -15,13 +17,20 @@ class Header extends Component {
           </li>
         );
       default:
-        return (
-          <li>
+        return [
+          <li key="1">
+            {' '}
+            <Payments />{' '}
+          </li>,
+          <li key="3" style={{ margin: '0 10px' }}>
+            Credits: {this.props.auth.credits}
+          </li>,
+          <li key="2">
             <a href="/api/logout" className="waves-effect waves-light btn">
               Log out
             </a>
           </li>
-        );
+        ];
     }
   }
   render() {
@@ -29,10 +38,13 @@ class Header extends Component {
       <nav>
         <div className="nav-wrapper">
           <div className="container">
-            <a href="/" className="left brand-logo">
+            <Link
+              to={this.props.auth ? '/surveys' : '/'}
+              className="left brand-logo"
+            >
               {' '}
-              PropBook
-            </a>
+              Emaily
+            </Link>
             <ul className="right">{this.renderContent()}</ul>
           </div>
         </div>
@@ -44,14 +56,3 @@ function mapStateToProps({ auth }) {
   return { auth };
 }
 export default connect(mapStateToProps)(Header);
-
-/* <nav>
-    <div class="nav-wrapper">
-        <a href="#" class="brand-logo">Logo</a>
-        <ul id="nav-mobile" class="right hide-on-med-and-down">
-            <li><a href="sass.html">Sass</a></li>
-            <li><a href="badges.html">Components</a></li>
-            <li><a href="collapsible.html">JavaScript</a></li>
-        </ul>
-    </div>
-</nav> */
