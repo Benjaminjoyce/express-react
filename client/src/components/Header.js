@@ -19,8 +19,7 @@ class Header extends Component {
       default:
         return [
           <li key="1">
-            {' '}
-            <Payments />{' '}
+            <Payments />
           </li>,
           <li key="3" style={{ margin: '0 10px' }}>
             Credits: {this.props.auth.credits}
@@ -42,7 +41,6 @@ class Header extends Component {
               to={this.props.auth ? '/surveys' : '/'}
               className="left brand-logo"
             >
-              {' '}
               Emaily
             </Link>
             <ul className="right">{this.renderContent()}</ul>

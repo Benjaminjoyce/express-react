@@ -4,5 +4,6 @@ module.exports = {
     mongoURI: 'mongodb://benjaminjoyce:simpsons9711@ds125892.mlab.com:25892/emaily-dev',
     cookieKey: 'hsadasdfjkljhu',
     stripePublishableKey: 'pk_test_RP3Ez2kGTKeRjvbooQB6XXBM',
-    stripeSecretKey: 'sk_test_iF3ADoAh1D7kQuYX3DptJ575'
+    stripeSecretKey: 'sk_test_iF3ADoAh1D7kQuYX3DptJ575',
+    sendGridKey: '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'
 };
